@@ -1,0 +1,11 @@
+# requirement
+
+* python-webkit
+
+# install
+
+./install.sh
+
+# run
+
+Double click Marboo icon in Desktop.

@@ -1,0 +1,21 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Name=Marboo
+GenericName=Text Editor
+GenericName[de]=Texteditor
+Comment=Edit text files
+Comment[en_CA]=Edit text files
+Comment[en_GB]=Edit text files
+Comment[zh_CN]=编辑文本文件
+Comment[zh_TW]=編輯文字檔
+TryExec=/usr/local/bin/marboo
+Exec=/usr/local/bin/marboo
+Exec=marboo
+Terminal=false
+Type=Application
+Icon=marboo
+Categories=Utility;TextEditor;
+StartupNotify=true
+MimeType=text/plain;
+X-Desktop-File-Install-Version=0.20

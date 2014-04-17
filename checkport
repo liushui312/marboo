@@ -1,0 +1,3 @@
+#!/bin/sh
+
+netstat -ant| grep "*.$1 " |wc -l|sed 's/^[ \t]*//;s/[ \t]*$//'

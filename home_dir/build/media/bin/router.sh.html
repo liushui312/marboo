@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> router.template </title>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="date" content="2013-02-03 19:28:01" />
+        <meta name="generator" content="Marboo 0.5: http://marboo.biz" />
+        <link rel="stylesheet" type="text/css" href="/media/css/pygmentize-default.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/media/css/marboo.css" media="screen" />
+    </head>
+    <body style="background-color:transparent">
+        <h3>router.sh</h3>
+
+<div class="highlight"><pre><span class="c">#!/bin/sh</span>
+<span class="c"># author: amoblin &lt;amoblin@gmail.com&gt;</span>
+<span class="c"># file name: router.sh</span>
+<span class="c"># create date: 2013-02-03 15:52:02</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;&lt;h3&gt;`basename \&quot;$1\&quot;`&lt;/h3&gt;\n&quot;</span>
+
+<span class="nb">type</span><span class="o">=</span><span class="sb">`</span>pygmentize -N <span class="s2">&quot;$1&quot;</span><span class="sb">`</span>
+<span class="nv">isTxt</span><span class="o">=</span><span class="sb">`</span>basename <span class="s2">&quot;$1&quot;</span>|grep <span class="s2">&quot;\.txt$&quot;</span><span class="sb">`</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$type&quot;</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span> -a -z <span class="s2">&quot;$isTxt&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+    <span class="c"># solution 2:</span>
+    <span class="c"># 优点：根据内容进行语法高亮</span>
+    <span class="c"># 缺点：能识别格式的文件(type != text或后缀是txt类)，中文乱码</span>
+    pygmentize -f html -O <span class="nv">encoding</span><span class="o">=</span>utf-8,outencoding<span class="o">=</span>latin-1,style<span class="o">=</span>default -g <span class="s2">&quot;$1&quot;</span>
+<span class="k">else</span>
+    <span class="c"># solution 1:</span>
+    <span class="c"># 优点：没有乱码</span>
+    <span class="c"># 缺点：不能根据内容来识别格式，识别为text，使用text高亮，也就是无高亮。</span>
+    pygmentize -f html -O <span class="nv">encoding</span><span class="o">=</span>utf-8,style<span class="o">=</span>default -l <span class="s2">&quot;$type&quot;</span> <span class="s2">&quot;$1&quot;</span>
+<span class="k">fi</span>
+
+<span class="c"># solution 3: 适合oh模板。</span>
+<span class="c"># 有后缀的文件，中文编码错误。</span>
+<span class="c">#cp &quot;$1&quot; /tmp/marboo_tmp_file</span>
+<span class="c">#pygmentize -f html \</span>
+<span class="c">#    -O encoding=utf-8,outencoding=latin-1,style=default \</span>
+<span class="c">#    -g /tmp/marboo_tmp_file</span>
+</pre></div>
+
+        <script src="/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

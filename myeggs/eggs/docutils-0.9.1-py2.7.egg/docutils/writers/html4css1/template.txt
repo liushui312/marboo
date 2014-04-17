@@ -1,0 +1,9 @@
+%(head_prefix)s
+%(head)s
+%(stylesheet)s
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+%(body_prefix)s
+%(body_pre_docinfo)s
+%(docinfo)s
+%(body)s
+%(body_suffix)s
